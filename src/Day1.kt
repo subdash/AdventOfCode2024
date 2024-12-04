@@ -3,7 +3,7 @@ import java.io.InputStream
 import java.util.PriorityQueue
 import kotlin.math.abs
 
-const val PATH_TO_INPUT = "resources/puzzle_input.txt"
+private const val PATH_TO_INPUT = "resources/puzzle_input_day1.txt"
 
 fun day1(): Long {
     val inputStream: InputStream = File(PATH_TO_INPUT).inputStream()
