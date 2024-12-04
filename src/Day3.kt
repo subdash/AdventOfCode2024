@@ -12,7 +12,7 @@ fun day3(): Pair<Int, Int> {
     return Pair(first, second)
 }
 
-fun process(line: String, handleDoDont: Boolean): Int {
+private fun process(line: String, handleDoDont: Boolean): Int {
     // Find first mul() instruction
     val firstOccurrenceMul = line.indexOf("mul(")
     val firstOccurrenceDont = line.slice(0..firstOccurrenceMul).indexOf("don't()")
