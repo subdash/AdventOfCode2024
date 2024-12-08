@@ -1,9 +1,10 @@
 import java.io.BufferedReader
 import java.io.File
 import java.util.*
-import kotlin.collections.HashMap
 
 private const val PATH_TO_INPUT = "resources/puzzle_input_day6.txt"
+
+data class Position(var row: Int, var col: Int, var direction: Direction)
 
 enum class Direction {
     LEFT,
@@ -30,8 +31,6 @@ private val getDelta = { direction: Direction ->
     }
 }
 
-data class Position(var row: Int, var col: Int, var direction: Direction)
-
 private val hashPosition = { pos: Position, m: Int -> (pos.row * m) + pos.col }
 private val unhashPosition = { n: Int, pos: Int ->
     val row = pos / n
@@ -45,7 +44,7 @@ private val inBounds = { pos: Position, m: Int, n: Int ->
             pos.col < n
 }
 
-data class State(
+private data class State(
     val visited: MutableSet<Int>,
     val m: Int,
     val n: Int,
@@ -84,7 +83,7 @@ fun day6(): Pair<Int, Int> {
     return Pair(part1, part2)
 }
 
-fun day6Pt1(state: State): Int {
+private fun day6Pt1(state: State): Int {
     while (inBounds(state.position, state.m, state.n)) {
         state.visited.add(hashPosition(state.position, state.m))
         val delta = getDelta(state.position.direction)
@@ -108,7 +107,7 @@ fun day6Pt1(state: State): Int {
     return state.visited.size
 }
 
-fun day6Pt2(state: State): Int {
+private fun day6Pt2(state: State): Int {
     var positions = 0
     val hashedStartPosition = hashPosition(Position(state.start.first, state.start.second, Direction.UP), state.m)
     state.visited.remove(hashedStartPosition)

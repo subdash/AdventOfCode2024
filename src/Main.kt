@@ -5,5 +5,6 @@ fun main() {
 //    println(day4())
 //    println(day5())
 //    println(day6())
-    println(day7())
+//    println(day7())
+    println(day8())
 }
