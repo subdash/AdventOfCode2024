@@ -11,4 +11,10 @@ class Day7KtTest {
         assert(solve(listOf(123345, 123, 345), withCat = false) == 0L) // unsolvable
         assert(solve(listOf(123345, 123, 345), withCat = true) == 123345L) // solvable with concatenation
     }
+
+    @Test
+    fun testCharConversion() {
+        assert('0' - '0' == 0)
+        assert('9' - '0' == 9)
+    }
 }
